@@ -19,6 +19,7 @@ struct student
 
 void zad1()
 {
+    bool flag = true;
     int size = 1;
     cout << "Введите кол-во студентов :";
     cin >> size;
@@ -101,6 +102,30 @@ void zad1()
         }
     }
 
+    cout << "Информация по введеным вами студентам с средним баллом 4 и выше :" << endl;
+    for (int i = 0; i < size; i++)
+    {
+        if (studdentList[i].averageGrades >= 4)
+        {
+            flag = false;
+            cout << endl << "Фамилия и инициалы студента #" << i + 1 << " :"
+                << studdentList[i].name << " " << studdentList[i].surname[0] << "." << studdentList[i].surname[1] << endl;
+
+            cout << "номер его группы :" << studdentList[i].gropNumber << endl;
+            cout << "Его средний бал равен :" << studdentList[i].averageGrades << endl;
+            cout << "название предметов и оценок студента:" << endl;
+            for (int i2 = 0; i2 < 5; i2++)
+            {
+                cout << endl << "предмета #" << i2 + 1 << endl;
+                cout << "Название предмета :" << studdentList[i].grades[i2].subject << endl;
+                cout << "Оценка по предмету :" << studdentList[i].grades[i2].value << endl;
+            }
+        }
+    }
+    if (flag)
+    {
+        cout << "к сожаленнию студентов с средни баллов выше 4 нет";
+    }
 }
 
 int main()
