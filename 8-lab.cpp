@@ -25,7 +25,9 @@ void zad1()
     cin >> size;
     cout << endl;
     student buffer;
+    student buffer2;
     student * studdentList = new student [size];
+    student* studdentU;
 
     for (int i = 0; i < size; i++)
     {
@@ -82,8 +84,18 @@ void zad1()
                     studdentList[i2 + 1] = buffer;
                 }
             }
+
+            if (i == 0)
+            {
+                buffer2 = studdentList[0];
+            }
+            if (studdentList[i].name > buffer.name)
+            {
+                buffer = studdentList[i];
+            }
         }
     }
+    studdentU = &buffer;
 
     cout << "Информация по введеным вами студентам упорядочным по среднему баллу:" << endl;
     for (int i = 0; i < size; i++)
@@ -126,6 +138,8 @@ void zad1()
     {
         cout << "к сожаленнию студентов с средни баллов выше 4 нет";
     }
+
+    cout <<endl<< "Студент с наименьшем именем :" << (*studdentU).name;
 }
 
 int main()
